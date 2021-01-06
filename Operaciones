@@ -1,0 +1,56 @@
+
+package u5e1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Dominguez Cazales Jennifer Irlanda
+ */
+public class Operaciones {
+    Scanner leer = new Scanner(System.in);
+    List <Integer>lista = new ArrayList<Integer>();
+    Random r = new Random();
+
+    public void Ingresar() {
+        int can;
+        System.out.println("Se ingresaran numeros aleatorios entre el 1 y el 100");
+        System.out.println("¿Cuantos numeros deseas ingresar?");
+        can=leer.nextInt();
+        for (int i = 0; i < can; i++) {
+            int valorDado = r.nextInt(100); 
+            lista.add(valorDado);
+        }
+    }
+    public void Mostrar() {
+        int cantidad=lista.size();
+        if (cantidad==0) {
+            System.out.println("La lista esta vacia, ingresa algo");
+        }else{
+                 System.out.println(lista);      
+        }
+ 
+    }
+    public void Ordenar() {
+        int cantidad=lista.size();
+        if (cantidad==0) {
+            System.out.println("La lista esta vacia, ingresa algo");
+        }else{
+            for (int i = 0; i < lista.size(); i++) {
+                for (int j = 0; j < lista.size()-1; j++) {
+                    if (lista.get(j)>lista.get(j+1)) {
+                        int auxiliar= lista.get(j+1);
+                        lista.set(j+1,lista.get(j));
+                       // lista.get(j+1)=lista.get(j);
+                        //lista[j]=auxiliar;
+
+                        lista.set(j,auxiliar);
+                    }
+                }
+            } 
+        }
+    }
+}
